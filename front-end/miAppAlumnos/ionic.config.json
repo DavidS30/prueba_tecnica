@@ -1,0 +1,7 @@
+{
+  "name": "miAppAlumnos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Alumnos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let alumno of alumnos">
+      <ion-label>
+        <h2>{{ alumno.nombre }}</h2>
+        <p>fecha_nacimiento: {{ alumno.fecha_nacimiento}}</p>
+        <p>Nombre Padre: {{ alumno.nombre_padre}}</p>
+        <p>Nombre Madre: {{ alumno.nombre_madre}}</p>
+        <p>Grado: {{ alumno.grado}}</p>
+        <p>Seccion: {{ alumno.seccion}}</p>
+        <p>Fecha Ingreso: {{ alumno.fecha_ingreso}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/crear-alumno">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
