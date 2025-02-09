@@ -7,6 +7,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label>
+      <h2>Filtrar por grado</h2>
+      <div>
+        <ion-input [ngModel]="gradeFilter" (ngModelChange)="gradeFilter = $event"
+          placeholder="Digita un grado, ejem: 1,2,4,5"></ion-input>
+      </div>
+      <ion-button (click)="filterByGrade()">Filtrar</ion-button>
+    </ion-label>
+
+  </ion-item>
   <ion-list>
     <ion-item *ngFor="let alumno of alumnos">
       <ion-label>

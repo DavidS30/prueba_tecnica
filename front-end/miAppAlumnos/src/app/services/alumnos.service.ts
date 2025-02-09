@@ -18,7 +18,7 @@ export interface Alumno {
 
 
 export class AlumnosService {
-  private apiUrl = 'http://127.0.0.1:8000/';
+  private apiUrl = 'http://127.0.0.1:8000';
 
   constructor(private http: HttpClient) { }
 
@@ -26,8 +26,8 @@ export class AlumnosService {
     return this.http.get<Alumno[]>(`${this.apiUrl}/consultar-todos/`);
   }
 
-  getAlumnoByGrade(grade: string): Observable<Alumno> {
-    return this.http.get<Alumno>(`${this.apiUrl}/consultar-alumno/${grade}/`);
+  getAlumnoByGrade(grade: string): Observable<Alumno[]> {
+    return this.http.get<Alumno[]>(`${this.apiUrl}/consultar-alumno/${grade}/`);
   }
 
   createAlumno(alumno: Alumno): Observable<Alumno> {

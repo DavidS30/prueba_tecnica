@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-crear-alumno',
   templateUrl: './crear-alumno.page.html',
   styleUrls: ['./crear-alumno.page.scss'],
-  imports: [FormsModule, IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonLabel, IonItem, IonList, IonAlert, IonInput, RouterModule]
+  imports: [FormsModule, IonContent, IonHeader, IonTitle, IonButton, IonLabel, IonItem, IonList, IonAlert, IonInput, RouterModule]
 })
 export class CrearAlumnoPage {
 
@@ -21,16 +21,14 @@ export class CrearAlumnoPage {
     grado: '',
     seccion: '',
   };
-  alumno_nombre = '';
   isAlertOpen = false;
   alertButtons = ['Cerrar'];
-  errorMessages = "xdxdxd"
+  errorMessages = "";
 
   constructor(private alumnosService: AlumnosService, private router: Router) { }
 
 
   guardarAlumno() {
-    console.log("nombre alumnoooo " + this.alumno_nombre);
     this.alumnosService.createAlumno(this.alumno).subscribe({
       next: () => {
         this.router.navigate(['/home']);
@@ -44,13 +42,12 @@ export class CrearAlumnoPage {
           errorMessagesTotal += `${clave}: ${valor} \n\n`;
         }
         this.errorMessages = errorMessagesTotal;
-        this.isAlertOpen = false
       }
     });
   }
 
-  do_something($event: any) {
-    this.alumno_nombre = $event.target.value;
+  setOpen(isOpen: boolean) {
+    this.isAlertOpen = isOpen;
   }
 
 }
